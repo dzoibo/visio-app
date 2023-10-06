@@ -1,0 +1,28 @@
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,500;1,600;1,700;1,800&display=swap');
+*{
+    font-family: 'Rubik', sans-serif;
+}    
+#bt-sign-up{
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.20);
+}
+#illustration{
+    width: 447.877px;
+    height: 459.333px;
+    flex-shrink: 0;
+}
+#bt-start{
+    padding: 10px 24px;  
+    box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.20);
+    border-radius: 8px;
+}
+@media (max-width:480px){
+    
+    #illustration{
+        width: 300px;
+        height: 250px;
+        flex-shrink: 0;
+    }
+}
