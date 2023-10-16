@@ -44,8 +44,10 @@
     }
 }
 
-.video-swiper{
-    max-width: 300px;
+.swiper-slide{
+    width: 300px !important;
+}
+  .swiper-scrollbar {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
