@@ -25,8 +25,23 @@ export class CallManagerComponent implements OnInit{
       dragSize: 100,
     },
   };
+  show_user_list=true;
+  display_chat=true;
+  chatMode='group';
 
   ngOnInit(){
     
   }
+  toggle_chat(){
+    this.display_chat= !this.display_chat;
+  }
+
+  toggle_user_list(){
+    this.show_user_list=!this.show_user_list;
+  }
+
+  setChatMode(chatMode: string){
+    this.chatMode= chatMode;
+  }
+
 }

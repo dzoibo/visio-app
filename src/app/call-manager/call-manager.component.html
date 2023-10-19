@@ -188,13 +188,10 @@
                         <path d="M13.417 12.8334C14.3835 12.8334 15.167 12.0499 15.167 11.0834C15.167 10.1169 14.3835 9.33337 13.417 9.33337C12.4505 9.33337 11.667 10.1169 11.667 11.0834C11.667 12.0499 12.4505 12.8334 13.417 12.8334Z" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-
-                
-                        
             </div>
         </div>
 
-        <div class="flex flex-col w-[421px] bg-[#F6F6F6] border border-solid border-[#EAE9E9] ">
+        <div id="user-list-container" class=" flex flex-col w-[421px] bg-[#F6F6F6] border border-solid border-[#EAE9E9] ">
             <div class="font-semibold justify-between items-center bg-white flex pl-[32px] pr-[22px] mb-[30px] w-full h-[70px]">
                 <div class="text-[#292D32] text-lg ">Participants</div>
                 <div class="flex items-center">
@@ -202,13 +199,242 @@
                         <span class="text-sm text-[#141EFF] ">Add participant</span>
                         <img class="ml-2.5" src="../../assets/image/user-add.svg" alt="add-user-icon">
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
-                        <path d="M1 7L7 1L13 7" stroke="#141EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>  
+                    
+                    <svg *ngIf="show_user_list" (click)="toggle_user_list()"  xmlns="http://www.w3.org/2000/svg" width="35" fill="#141EFF" viewBox="0 0 24 24">
+                        <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" *ngIf="!show_user_list" (click)="toggle_user_list()"  fill="#141EFF" width="35">
+                        <path d="M12 11.8284L9.17154 14.6569L7.75732 13.2426L12 9L16.2426 13.2426L14.8284 14.6569L12 11.8284Z"></path>
+                    </svg>
                 </div>
-                
             </div>
-            <div id="user-list" class="pr-5 pl-5 mr-8 mb-9 flex-grow">
+
+            <div id="user-list" *ngIf="show_user_list" [ngClass]="display_chat?'max-h-[35%]':'max-h-[95%]'" class="overflow-auto max  pr-5 pl-5 mr-8 min-h-[300px]">
+                <div class="flex rounded-[31.5px] bg-[#ffffffcc] justify-between items-center mb-4 h-[69px] pr-4 pl-2">
+                    <div class="flex items-center">
+                        <div class="mr-[17px] h-[55px] w-[55px] rounded-[95px]">
+                            <img src="../../assets/image/contacts-image/user1.png" class="w-full h-full" alt="meeting participant image profile" >
+                        </div>
+                        <span class="text-[#25293B] font-medium">Dianne Russell</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="mr-[17px]" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M12 16C14.21 16 16 14.21 16 12V6.5C16 4.29 14.21 2.5 12 2.5C9.79 2.5 8 4.29 8 6.5V12C8 14.21 9.79 16 12 16Z" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.3501 10.15V11.85C4.3501 16.07 7.7801 19.5 12.0001 19.5C16.2201 19.5 19.6501 16.07 19.6501 11.85V10.15" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6099 6.93C11.5099 6.6 12.4899 6.6 13.3899 6.93" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.2002 9.05001C11.7302 8.91001 12.2802 8.91001 12.8102 9.05001" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19.5V22.5" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M16.63 8.08C16.63 8.08 16.66 7.13 16.63 6.82C16.46 4.78 15.13 4.08 12.52 4.08H6.21C3.05 4.08 2 5.13 2 8.29V16.71C2 17.97 2.38 19.24 3.37 20.05L4 20.5" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.7398 11.45V16.71C16.7398 19.87 15.6898 20.92 12.5298 20.92H7.25977" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.0002 7.24001V16.31C22.0002 17.98 20.8802 18.56 19.5202 17.6L16.7402 15.65" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.02 2.69L2.02002 22.69" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="flex rounded-[31.5px] bg-[#ffffffcc] justify-between items-center mb-4 h-[69px] pr-4 pl-2">
+                    <div class="flex items-center">
+                        <div class="mr-[17px] h-[55px] w-[55px] rounded-[95px]">
+                            <img src="../../assets/image/contacts-image/user1.png" class="w-full h-full" alt="meeting participant image profile" >
+                        </div>
+                        <span class="text-[#25293B] font-medium">Dianne Russell</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="mr-[17px]" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M12 16C14.21 16 16 14.21 16 12V6.5C16 4.29 14.21 2.5 12 2.5C9.79 2.5 8 4.29 8 6.5V12C8 14.21 9.79 16 12 16Z" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.3501 10.15V11.85C4.3501 16.07 7.7801 19.5 12.0001 19.5C16.2201 19.5 19.6501 16.07 19.6501 11.85V10.15" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6099 6.93C11.5099 6.6 12.4899 6.6 13.3899 6.93" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.2002 9.05001C11.7302 8.91001 12.2802 8.91001 12.8102 9.05001" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19.5V22.5" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M16.63 8.08C16.63 8.08 16.66 7.13 16.63 6.82C16.46 4.78 15.13 4.08 12.52 4.08H6.21C3.05 4.08 2 5.13 2 8.29V16.71C2 17.97 2.38 19.24 3.37 20.05L4 20.5" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.7398 11.45V16.71C16.7398 19.87 15.6898 20.92 12.5298 20.92H7.25977" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.0002 7.24001V16.31C22.0002 17.98 20.8802 18.56 19.5202 17.6L16.7402 15.65" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.02 2.69L2.02002 22.69" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="flex rounded-[31.5px] bg-[#ffffffcc] justify-between items-center mb-4 h-[69px] pr-4 pl-2">
+                    <div class="flex items-center">
+                        <div class="mr-[17px] h-[55px] w-[55px] rounded-[95px]">
+                            <img src="../../assets/image/contacts-image/user1.png" class="w-full h-full" alt="meeting participant image profile" >
+                        </div>
+                        <span class="text-[#25293B] font-medium">Dianne Russell</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="mr-[17px]" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M12 16C14.21 16 16 14.21 16 12V6.5C16 4.29 14.21 2.5 12 2.5C9.79 2.5 8 4.29 8 6.5V12C8 14.21 9.79 16 12 16Z" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.3501 10.15V11.85C4.3501 16.07 7.7801 19.5 12.0001 19.5C16.2201 19.5 19.6501 16.07 19.6501 11.85V10.15" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6099 6.93C11.5099 6.6 12.4899 6.6 13.3899 6.93" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.2002 9.05001C11.7302 8.91001 12.2802 8.91001 12.8102 9.05001" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19.5V22.5" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M16.63 8.08C16.63 8.08 16.66 7.13 16.63 6.82C16.46 4.78 15.13 4.08 12.52 4.08H6.21C3.05 4.08 2 5.13 2 8.29V16.71C2 17.97 2.38 19.24 3.37 20.05L4 20.5" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.7398 11.45V16.71C16.7398 19.87 15.6898 20.92 12.5298 20.92H7.25977" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.0002 7.24001V16.31C22.0002 17.98 20.8802 18.56 19.5202 17.6L16.7402 15.65" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.02 2.69L2.02002 22.69" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="flex rounded-[31.5px] bg-[#ffffffcc] justify-between items-center mb-4 h-[69px] pr-4 pl-2">
+                    <div class="flex items-center">
+                        <div class="mr-[17px] h-[55px] w-[55px] rounded-[95px]">
+                            <img src="../../assets/image/contacts-image/user1.png" class="w-full h-full" alt="meeting participant image profile" >
+                        </div>
+                        <span class="text-[#25293B] font-medium">Dianne Russell</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="mr-[17px]" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M12 16C14.21 16 16 14.21 16 12V6.5C16 4.29 14.21 2.5 12 2.5C9.79 2.5 8 4.29 8 6.5V12C8 14.21 9.79 16 12 16Z" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.3501 10.15V11.85C4.3501 16.07 7.7801 19.5 12.0001 19.5C16.2201 19.5 19.6501 16.07 19.6501 11.85V10.15" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6099 6.93C11.5099 6.6 12.4899 6.6 13.3899 6.93" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.2002 9.05001C11.7302 8.91001 12.2802 8.91001 12.8102 9.05001" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19.5V22.5" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M16.63 8.08C16.63 8.08 16.66 7.13 16.63 6.82C16.46 4.78 15.13 4.08 12.52 4.08H6.21C3.05 4.08 2 5.13 2 8.29V16.71C2 17.97 2.38 19.24 3.37 20.05L4 20.5" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.7398 11.45V16.71C16.7398 19.87 15.6898 20.92 12.5298 20.92H7.25977" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.0002 7.24001V16.31C22.0002 17.98 20.8802 18.56 19.5202 17.6L16.7402 15.65" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.02 2.69L2.02002 22.69" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="flex rounded-[31.5px] bg-[#ffffffcc] justify-between items-center mb-4 h-[69px] pr-4 pl-2">
+                    <div class="flex items-center">
+                        <div class="mr-[17px] h-[55px] w-[55px] rounded-[95px]">
+                            <img src="../../assets/image/contacts-image/user1.png" class="w-full h-full" alt="meeting participant image profile" >
+                        </div>
+                        <span class="text-[#25293B] font-medium">Dianne Russell</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="mr-[17px]" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M12 16C14.21 16 16 14.21 16 12V6.5C16 4.29 14.21 2.5 12 2.5C9.79 2.5 8 4.29 8 6.5V12C8 14.21 9.79 16 12 16Z" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.3501 10.15V11.85C4.3501 16.07 7.7801 19.5 12.0001 19.5C16.2201 19.5 19.6501 16.07 19.6501 11.85V10.15" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6099 6.93C11.5099 6.6 12.4899 6.6 13.3899 6.93" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.2002 9.05001C11.7302 8.91001 12.2802 8.91001 12.8102 9.05001" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19.5V22.5" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M16.63 8.08C16.63 8.08 16.66 7.13 16.63 6.82C16.46 4.78 15.13 4.08 12.52 4.08H6.21C3.05 4.08 2 5.13 2 8.29V16.71C2 17.97 2.38 19.24 3.37 20.05L4 20.5" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.7398 11.45V16.71C16.7398 19.87 15.6898 20.92 12.5298 20.92H7.25977" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.0002 7.24001V16.31C22.0002 17.98 20.8802 18.56 19.5202 17.6L16.7402 15.65" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.02 2.69L2.02002 22.69" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="flex rounded-[31.5px] bg-[#ffffffcc] justify-between items-center mb-4 h-[69px] pr-4 pl-2">
+                    <div class="flex items-center">
+                        <div class="mr-[17px] h-[55px] w-[55px] rounded-[95px]">
+                            <img src="../../assets/image/contacts-image/user1.png" class="w-full h-full" alt="meeting participant image profile" >
+                        </div>
+                        <span class="text-[#25293B] font-medium">Dianne Russell</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="mr-[17px]" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M12 16C14.21 16 16 14.21 16 12V6.5C16 4.29 14.21 2.5 12 2.5C9.79 2.5 8 4.29 8 6.5V12C8 14.21 9.79 16 12 16Z" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.3501 10.15V11.85C4.3501 16.07 7.7801 19.5 12.0001 19.5C16.2201 19.5 19.6501 16.07 19.6501 11.85V10.15" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6099 6.93C11.5099 6.6 12.4899 6.6 13.3899 6.93" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.2002 9.05001C11.7302 8.91001 12.2802 8.91001 12.8102 9.05001" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19.5V22.5" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M16.63 8.08C16.63 8.08 16.66 7.13 16.63 6.82C16.46 4.78 15.13 4.08 12.52 4.08H6.21C3.05 4.08 2 5.13 2 8.29V16.71C2 17.97 2.38 19.24 3.37 20.05L4 20.5" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.7398 11.45V16.71C16.7398 19.87 15.6898 20.92 12.5298 20.92H7.25977" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.0002 7.24001V16.31C22.0002 17.98 20.8802 18.56 19.5202 17.6L16.7402 15.65" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.02 2.69L2.02002 22.69" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="flex rounded-[31.5px] bg-[#ffffffcc] justify-between items-center mb-4 h-[69px] pr-4 pl-2">
+                    <div class="flex items-center">
+                        <div class="mr-[17px] h-[55px] w-[55px] rounded-[95px]">
+                            <img src="../../assets/image/contacts-image/user1.png" class="w-full h-full" alt="meeting participant image profile" >
+                        </div>
+                        <span class="text-[#25293B] font-medium">Dianne Russell</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="mr-[17px]" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M12 16C14.21 16 16 14.21 16 12V6.5C16 4.29 14.21 2.5 12 2.5C9.79 2.5 8 4.29 8 6.5V12C8 14.21 9.79 16 12 16Z" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.3501 10.15V11.85C4.3501 16.07 7.7801 19.5 12.0001 19.5C16.2201 19.5 19.6501 16.07 19.6501 11.85V10.15" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6099 6.93C11.5099 6.6 12.4899 6.6 13.3899 6.93" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.2002 9.05001C11.7302 8.91001 12.2802 8.91001 12.8102 9.05001" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19.5V22.5" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M16.63 8.08C16.63 8.08 16.66 7.13 16.63 6.82C16.46 4.78 15.13 4.08 12.52 4.08H6.21C3.05 4.08 2 5.13 2 8.29V16.71C2 17.97 2.38 19.24 3.37 20.05L4 20.5" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.7398 11.45V16.71C16.7398 19.87 15.6898 20.92 12.5298 20.92H7.25977" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.0002 7.24001V16.31C22.0002 17.98 20.8802 18.56 19.5202 17.6L16.7402 15.65" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.02 2.69L2.02002 22.69" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="flex rounded-[31.5px] bg-[#ffffffcc] justify-between items-center mb-4 h-[69px] pr-4 pl-2">
+                    <div class="flex items-center">
+                        <div class="mr-[17px] h-[55px] w-[55px] rounded-[95px]">
+                            <img src="../../assets/image/contacts-image/user1.png" class="w-full h-full" alt="meeting participant image profile" >
+                        </div>
+                        <span class="text-[#25293B] font-medium">Dianne Russell</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="mr-[17px]" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M12 16C14.21 16 16 14.21 16 12V6.5C16 4.29 14.21 2.5 12 2.5C9.79 2.5 8 4.29 8 6.5V12C8 14.21 9.79 16 12 16Z" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.3501 10.15V11.85C4.3501 16.07 7.7801 19.5 12.0001 19.5C16.2201 19.5 19.6501 16.07 19.6501 11.85V10.15" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6099 6.93C11.5099 6.6 12.4899 6.6 13.3899 6.93" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.2002 9.05001C11.7302 8.91001 12.2802 8.91001 12.8102 9.05001" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19.5V22.5" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M16.63 8.08C16.63 8.08 16.66 7.13 16.63 6.82C16.46 4.78 15.13 4.08 12.52 4.08H6.21C3.05 4.08 2 5.13 2 8.29V16.71C2 17.97 2.38 19.24 3.37 20.05L4 20.5" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.7398 11.45V16.71C16.7398 19.87 15.6898 20.92 12.5298 20.92H7.25977" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.0002 7.24001V16.31C22.0002 17.98 20.8802 18.56 19.5202 17.6L16.7402 15.65" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.02 2.69L2.02002 22.69" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="flex rounded-[31.5px] bg-[#ffffffcc] justify-between items-center mb-4 h-[69px] pr-4 pl-2">
+                    <div class="flex items-center">
+                        <div class="mr-[17px] h-[55px] w-[55px] rounded-[95px]">
+                            <img src="../../assets/image/contacts-image/user1.png" class="w-full h-full" alt="meeting participant image profile" >
+                        </div>
+                        <span class="text-[#25293B] font-medium">Dianne Russell</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="mr-[17px]" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M12 16C14.21 16 16 14.21 16 12V6.5C16 4.29 14.21 2.5 12 2.5C9.79 2.5 8 4.29 8 6.5V12C8 14.21 9.79 16 12 16Z" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.3501 10.15V11.85C4.3501 16.07 7.7801 19.5 12.0001 19.5C16.2201 19.5 19.6501 16.07 19.6501 11.85V10.15" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6099 6.93C11.5099 6.6 12.4899 6.6 13.3899 6.93" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.2002 9.05001C11.7302 8.91001 12.2802 8.91001 12.8102 9.05001" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19.5V22.5" stroke="#141EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M16.63 8.08C16.63 8.08 16.66 7.13 16.63 6.82C16.46 4.78 15.13 4.08 12.52 4.08H6.21C3.05 4.08 2 5.13 2 8.29V16.71C2 17.97 2.38 19.24 3.37 20.05L4 20.5" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.7398 11.45V16.71C16.7398 19.87 15.6898 20.92 12.5298 20.92H7.25977" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.0002 7.24001V16.31C22.0002 17.98 20.8802 18.56 19.5202 17.6L16.7402 15.65" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.02 2.69L2.02002 22.69" stroke="#EB5757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </div>
+                </div>
                 <div class="flex rounded-[31.5px] bg-[#ffffffcc] justify-between items-center mb-4 h-[69px] pr-4 pl-2">
                     <div class="flex items-center">
                         <div class="mr-[17px] h-[55px] w-[55px] rounded-[95px]">
@@ -287,6 +513,31 @@
 
                     </div>
                 </div>
+            </div>
+            <div class="flex-grow pb-[141px]">
+                <div   class="w-full flex items-center justify-between rounder-[71px] h-[70px] bg-white mt-[37px] mb-[28px] pl-8 pr-[22px] ">
+                    <span class="font-md text-[#292D32] font-semibold">Chats</span>
+                
+                    <div class=" bg-[#DFEBFF] flex justify-between items-center w-[248px] text-sm font-semibold text-primary rounded-[66px] py-1">
+                        <div (click)="setChatMode('group')" class="w-[122px] h-full py-2.5 text-center rounded-[61px] cursor-pointer" [ngClass]="chatMode==='group'?'bg-[#141EFF] text-white ml-1':'' ">Group</div>
+                        <div (click)="setChatMode('chat')" class="w-[122px] h-full py-2.5 text-center rounded-[61px] cursor-pointer" [ngClass]="chatMode!=='group'?'bg-[#141EFF] text-white mr-1':''">Personnal</div>
+                    </div>
+                     
+                    <svg *ngIf="!display_chat" (click)="toggle_chat()"  xmlns="http://www.w3.org/2000/svg" width="35" fill="#141EFF" viewBox="0 0 24 24">
+                        <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path>
+                    </svg>
+                    
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" *ngIf="display_chat" (click)="toggle_chat()"   fill="#141EFF" width="35" >
+                        <path d="M12 11.8284L9.17154 14.6569L7.75732 13.2426L12 9L16.2426 13.2426L14.8284 14.6569L12 11.8284Z"></path>
+                    </svg>
+                      
+                </div>
+                
+                <ng-container *ngIf="display_chat ">
+                    <app-chat   [chatMode]="chatMode"></app-chat> 
+                </ng-container>
+                
             </div>
         </div>
     </div>

@@ -1,0 +1,58 @@
+
+
+<div>
+    <div class="flex pl-[20px] pr-[30px]">
+        <div class="rounded-[50%] h-[55px] w-[55px] mr-4 mt-1">
+            <img src="../../assets/image/user2.png" alt="">
+        </div>
+        <div class="flex-grow text-medium">
+            <ng-container  *ngFor="let messageSend of messageList, let i=index">
+                <div >
+                    <div *ngIf="i===0" class="w-full bg-white py-2.5 px-[13.5px] rounded-[10px]">
+                        <div class="text-[#AFAFAF] text-[10px]" >Guy Hawkins</div>
+                        <span class="text-[#25293B] text-normal">{{messageSend}} </span>
+                    </div>
+                    <div *ngIf="i>0" class="w-full bg-white py-2.5 rounded-[10px] px-[13.5px] mt-[12px]">
+                        <span class="text-[#25293B]">{{messageSend}}</span>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        
+        
+        <div class=" mt-3 text-[#AFAFAF] text-[10px] ml-[15px]" >11.01 AM</div>
+    </div>
+    <div class="flex pl-[20px] pr-[30px] mt-8">
+        <div class="rounded-[50%] h-[55px] w-[55px] mr-4 mt-1">
+            <img src="../../assets/image/user3.png" alt="">
+        </div>
+        <div class="flex-grow">
+            <div class="w-full bg-white py-2.5 px-[13.5px] rounded-[10px]">
+                <div class="text-[#AFAFAF] text-[10px]">Joshua Abraham</div>
+                <span class="text-[#25293B] text-normal">Yes, Let's start this meeting.</span>
+            </div>
+        </div>
+        <div class=" mt-3 text-[#AFAFAF] text-[10px] ml-[15px]">11.01 AM</div>
+    </div>
+
+    <div id="typing-indicator" class=" hidden nw-[41px] flex mx-auto justify-between text-[#D9D9D9] text-xl font-extrabold my-7">
+        <div>•</div>
+        <div>•</div>
+        <div>•</div>
+    </div>
+    <div class="h-[141px] bg-white pl-6 pr-8 flex py-[40px] absolute bottom-0">
+        <div  class="w-full h-[60px] rounded-[88px] bg-[#f6f6f6] flex items-center pl-[22px] pr-[8px]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" class="cursor-pointer">
+                <path d="M14.9624 15V19.375C14.9624 21.7875 16.9249 23.75 19.3374 23.75C21.7499 23.75 23.7124 21.7875 23.7124 19.375V12.5C23.7124 7.6625 19.7999 3.75 14.9624 3.75C10.1249 3.75 6.2124 7.6625 6.2124 12.5V20C6.2124 24.1375 9.5749 27.5 13.7124 27.5" stroke="#8D8F98" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input (keyup)="checkKey($event)" [(ngModel)]="message" type="text" class="ml-[22px] flex-grow placeholder:text-[#8D8F98] font-normal font-semibold bg-transparent outline-none" placeholder="Type Something...">
+            <div (click)="sendMessage()" class="cursor-pointer rounded-[50%] w-[50px] h-[50px] bg-[#141EFF] flex items-center justify-center ml-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                    <path d="M9.2501 7.90001L19.8626 4.36251C24.6251 2.77501 27.2126 5.37501 25.6376 10.1375L22.1001 20.75C19.7251 27.8875 15.8251 27.8875 13.4501 20.75L12.4001 17.6L9.2501 16.55C2.1126 14.175 2.1126 10.2875 9.2501 7.90001Z" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12.6377 17.0625L17.1127 12.575" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div> 
+    </div>
+    
+</div>
