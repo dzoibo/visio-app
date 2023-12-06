@@ -11,7 +11,10 @@ const routes: Routes = [
   {
     path:'meeting',
     component:CallManagerComponent,
-  },
+  },{
+    path:'meeting/:id',
+    component: CallManagerComponent
+  }
   
 ];
 

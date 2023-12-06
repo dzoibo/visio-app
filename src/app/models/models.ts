@@ -6,3 +6,8 @@ export class User {
   emailVerified!: boolean;
 }
 
+export interface VideoElement {
+  muted: boolean;
+  srcObject: MediaStream;
+  userId: string;
+}
