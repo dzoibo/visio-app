@@ -58,7 +58,7 @@
             <div class="bg-cover bg-black text-white flex-grow rounded-[15px] my-5 mx-6 text-xl relative">
 
                 <ng-container *ngFor="let video of videos">
-                    <div *ngIf="video.userId === currentUserId">
+                    <div *ngIf="video.userId === uid">
                         <span>You</span>
                         <video class="rounded-lg absolute w-full h-full inset-0 bg-black" [srcObject]="video.srcObject" (loadedmetadata)="onLoadedMetadata($event)"
                             [muted]="video.muted">
@@ -113,7 +113,7 @@
             <div id="video-container" class="w-full ">
                 <swiper [config]="config" class="font-medium mx-6">
                     <ng-container *ngFor="let video of videos">
-                        <ng-template *ngIf="video.userId!== currentUserId" swiperSlide >
+                        <ng-template *ngIf="video.userId!== uid" swiperSlide >
                             <div  class="bg-black relative h-[181px] w-[297px] rounded-[11px] ">
                                 <div class=" absolute left-[22px] bottom-[12.5px] px-5 rounded-[60.9px] .5 flex items-center w- justify-center backdrop-blur-[2.7688093185424805px] bg-black/[.30]">
                                     <video [src]="" (loadedmetadata)="onLoadedMetadata($event)" [muted]="video.muted"></video>

@@ -13,8 +13,13 @@ import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
 import { ChatComponent } from './chat/chat.component';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { NgxAgoraModule, AgoraConfig } from 'ngx-agora';
 
 const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+
+const agoraConfig: AgoraConfig = {
+  AppID: '62f0d4944c8c4a42b904ca4d28be39b5',
+};
 
 
 @NgModule({
@@ -23,6 +28,10 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
     ChatComponent,
     HomeComponent,
     CallManagerComponent,
+  ],
+  
+  providers: [
+    AuthService
   ],
 
   imports: [
@@ -33,12 +42,10 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
     SwiperModule,
     SocketIoModule.forRoot(config),
     BrowserAnimationsModule,
+    NgxAgoraModule.forRoot(agoraConfig),
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-  ],
-  providers: [
-    AuthService
   ],
   bootstrap: [AppComponent]
 })
